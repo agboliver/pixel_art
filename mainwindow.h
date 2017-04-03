@@ -10,6 +10,8 @@
 #include <QAction>
 #include <iostream>
 
+#include "imgprocess.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -28,10 +30,11 @@ public slots:
 private:
     Ui::MainWindow *ui;
     QScrollArea *scroll_original, *scroll_final;
-    QLabel *label_original;
+    QLabel *label_original, *label_final;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QAction *actionOpen, *actionSave, *actionExit;
+    imgprocess *imgProcess;
 
 };
 

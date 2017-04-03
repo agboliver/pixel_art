@@ -6,9 +6,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    imgProcess = new imgprocess();
 
     //Constructing labels
     label_original = new QLabel();
+    label_final = new QLabel();
 
     //Constructing scrollarea
     scroll_original = new QScrollArea();
@@ -37,4 +39,8 @@ void MainWindow::load_image() {
     QImage image (filename);
     ui->label_original->setPixmap(QPixmap::fromImage(image));
     ui->label_original->adjustSize();
+
+    QImage img = imgProcess->pixeliseFunction(image, 20);
+    ui->label_final->setPixmap(QPixmap::fromImage(img));
+    ui->label_final->adjustSize();
 }
